@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 210 12% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 12% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 12% 16%;
+    --primary: 210 65% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 15% 93%;
+    --secondary-foreground: 210 12% 25%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 10% 48%;
+    --accent: 180 45% 68%;
+    --accent-foreground: 210 12% 16%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 210 65% 58%;
+    --radius: 1rem;
+    --gradient-primary: linear-gradient(135deg, hsl(210 65% 58%), hsl(180 45% 68%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(210 20% 98% / 0.7));
+    --shadow-glow: 0 8px 32px hsl(210 65% 58% / 0.12);
+  }
+  .dark {
+    --background: 210 18% 11%;
+    --foreground: 210 8% 94%;
+    --card: 210 16% 14%;
+    --card-foreground: 210 8% 94%;
+    --popover: 210 16% 14%;
+    --popover-foreground: 210 8% 94%;
+    --primary: 210 60% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 12% 18%;
+    --secondary-foreground: 210 8% 94%;
+    --muted: 210 12% 18%;
+    --muted-foreground: 210 8% 68%;
+    --accent: 180 40% 60%;
+    --accent-foreground: 210 8% 94%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 12% 22%;
+    --input: 210 12% 22%;
+    --ring: 210 60% 62%;
+    --gradient-primary: linear-gradient(135deg, hsl(210 60% 62%), hsl(180 40% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(210 16% 16% / 0.9), hsl(210 18% 12% / 0.7));
+    --shadow-glow: 0 8px 32px hsl(210 60% 62% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  :root {
+    --vh: 1vh;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    position: fixed;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+  }
+  
+  #root {
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
